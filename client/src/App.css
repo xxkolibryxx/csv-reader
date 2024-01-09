@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+#root>.MuiContainer-root {
+  height: 100%;
+}
+
+#root>.MuiContainer-root {
+  display: flex;
+  flex-direction: column;
+  margin-top: 28px;
+}
+
+main {
+  flex: 1;
+}
