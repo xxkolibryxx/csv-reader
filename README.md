@@ -8,9 +8,11 @@ For start Application you need do this actions.
 
 For client run's
 ### `cd client`
+### `npm install`
 ### `npm start`
 For server run's
 ### `cd server`
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
