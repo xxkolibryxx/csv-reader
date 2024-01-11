@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   Table as MuiTable,
   TableBody,
@@ -14,10 +14,8 @@ import {
 } from '@mui/material';
 import useTable from './useTable';
 import useBrakePoints from 'hooks/useBakePoints';
-import { GlobalContext } from 'providers/Global';
 
-const Table = () => {
-  const { data, lineCount } = useContext(GlobalContext);
+const Table = ({ data = [], lineCount = 0 }) => {
   const {
     searchTerm,
     setSearchTerm,

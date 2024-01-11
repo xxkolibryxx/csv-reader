@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 const useTable = ({ data }) => {
   const [page, setPage] = useState(0);
@@ -9,18 +9,26 @@ const useTable = ({ data }) => {
     return [];
   }, [data]);
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
-  const filteredData = data.filter((row) =>
-    keys.some((key) => String(row[key]).toLowerCase().includes(searchTerm.toLowerCase()))
+  const handleChangePage = useCallback(
+    (event, newPage) => {
+      setPage(newPage);
+    },
+    [setPage]
   );
+
+  const handleChangeRowsPerPage = useCallback(
+    (event) => {
+      setRowsPerPage(+event.target.value);
+      setPage(0);
+    },
+    [setRowsPerPage, setPage]
+  );
+
+  const filteredData = useMemo(() => {
+    return data.filter((row) =>
+      keys.some((key) => String(row[key]).toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+  }, [data, keys, searchTerm]);
 
   return {
     searchTerm,
