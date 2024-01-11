@@ -3,7 +3,6 @@ import { TextField, Grid } from '@mui/material';
 import { Button } from 'components/Styled/Button/Button';
 
 const FormGroup = ({ inputProps = {}, buttonLabel = '', buttonProps = {} }) => {
-  console.log(inputProps);
   return (
     <>
       <Grid container columnSpacing={1} rowSpacing={0} alignItems="stretch">

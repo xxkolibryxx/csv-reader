@@ -9,7 +9,6 @@ import useGlobal from 'hooks/useGlobal';
 
 function App() {
   const { url, setUrl, error, handleShowButtonClick, data, lineCount, loading } = useGlobal();
-  console.log(url);
   return (
     <Container maxWidth="lg">
       <header>
@@ -23,12 +22,13 @@ function App() {
             fullWidth: true,
             size: 'small',
           }}
-          buttonLabel="Показать"
+          buttonLabel={loading ? 'Загрузка...' : 'Показать'}
           buttonProps={{
             onClick: handleShowButtonClick,
             variant: 'contained',
             color: 'primary',
             fullWidth: true,
+            disabled: loading,
           }}
         />
       </header>
